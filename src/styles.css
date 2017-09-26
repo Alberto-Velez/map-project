@@ -1,0 +1,22 @@
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+
+.container{
+    min-width: 315px;
+    max-width: 1250px;
+    width: ~"cal(100%-60px)";
+    margin: 0 auto;
+}
+
+.sidebar-tab{
+    border-bottom: 1px solid black;
+    padding: 15px 30px;
+    display: block;
+}
+
+agm-map {
+    height: 300px;
+}

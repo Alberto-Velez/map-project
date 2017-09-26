@@ -1,0 +1,61 @@
+<div *ngIf="hero">
+
+    <div class="spot-images col-12">
+
+    </div>
+    <div class="container flex flex-wrap">
+        <div class="indv-spot col-8">
+            <h2 (click)="getnearby()">{{hero.name}}</h2>
+            <h3>{{hero.city}}</h3>
+            <p>{{hero.desc}}</p>
+            <div>
+            <label>id: </label>{{hero.id}}</div>
+            <button class="right" (click)="edit= !edit">Edit</button>
+            <div class="spot-edit" *ngIf="edit">
+                <label>Name: </label>
+                <input [(ngModel)]="hero.name" placeholder="Name" />
+                <label>City: </label>
+                <input [(ngModel)]="hero.city" placeholder="City" />
+                <label>Description: </label>
+                <input [(ngModel)]="hero.desc" placeholder="Description" />
+                <label>Location: </label>
+                <input [(ngModel)]="hero.latlong" placeholder="Location" />
+                <button (click)="goBack()">Back</button>
+                <button (click)="save()">Save</button>
+                <button class="delete"
+              (click)="delete(hero); $event.stopPropagation()">x</button>
+            </div>
+            <agm-map [latitude]="lat" [longitude]="lng">
+                <!-- <a *ngFor="let hero of heroes" [routerLink]="['/spot', hero.id, hero.city]"> -->
+                 <agm-marker [latitude]="hero.lat" [longitude]="hero.long">
+                     <!-- <agm-snazzy-info-window [maxWidth]="200" [closeWhenOthersOpen]="true">
+                     <ng-template>
+                       My first Snazzy Info Window!
+                     </ng-template>
+                   </agm-snazzy-info-window> -->
+               </agm-marker>
+           <!-- </a> -->
+           </agm-map>
+            <!-- <ngui-map center={{hero.latlong}}
+            (mapClick)="onMapClick($event)">
+
+                <marker [position]="hero.latlong" (click)="clicked($event, hero)"></marker>
+                <info-window id="iw">
+                    <div>
+                      This is a pop up
+                      {{hero.desc}}
+                    </div>
+                  </info-window>
+            </ngui-map>
+        </div> -->
+        <div class="spot-sidebar col-4">
+            <div class="center">
+                Nearby Spots
+            </div>
+            <a [routerLink]="['/spot', heroes.id]" class="sidebar-tab" *ngFor="let heroe of (heroes | nearby: heroe : hero.city : hero.id) ">
+                <span> {{heroe.name}} </span> <br>
+                <span> {{heroe.city}} </span> <br>
+                <span> {{heroes.desc}} </span> <br>
+            </a>
+        </div>
+</div>
