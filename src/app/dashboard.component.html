@@ -1,5 +1,9 @@
 <div class="container">
-    <h3>Top Spots to visit in <input [(ngModel)]="city"></h3>
+    <h2> You are searching spots in {{city}}</h2>
+    <div class="flex">
+        <h3 (click)="portland()">Portland</h3>
+        <h3 (click)="brooklyn()">Broolyn</h3>
+    </div>
     <div class="grid grid-pad">
         <a *ngFor="let hero of heroes" [routerLink]="['/spot', hero.id, hero.city]" >
             {{hero.name}}

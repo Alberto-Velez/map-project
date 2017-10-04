@@ -28,9 +28,14 @@ const app = express();
 
 
     // Catch all other routes and return the index file
-    app.get('*', (req, res) => {
-      res.sendFile(path.join(__dirname, 'src/index.html'));
-    });
+    // app.get('/*', (req, res) => {
+    //   res.sendFile(path.join(__dirname, 'src/index.html'));
+    // });
+
+    app.all('/*', function(req, res, next) {
+    // Just send the index.html for other files to support HTML5Mode
+    res.sendFile('dist/index.html', { root: __dirname });
+});
 
     /**
      * Get port from environment and store in Express.

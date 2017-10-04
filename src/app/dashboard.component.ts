@@ -26,11 +26,21 @@ export class DashboardComponent implements OnInit {
         lng: 0,
       };
       sub:any;
-      city:string;
+      city: string = "Brooklyn, NY";
 
       lat: number = 40.589971;
       lng: number =  -73.950005;
 
+      portland() : void {
+        this.lat = 45.481498;
+        this.lng = -122.654575;
+        this.city = "Portland, OR"
+      }
+      brooklyn() : void {
+          this.lat = 40.589971;
+          this.lng = -73.950005;
+          this.city = "Brooklyn, NY"
+      }
 
     //   clicked({target:marker}) {
     //     this.marker.lat = marker.getPosition().lat();

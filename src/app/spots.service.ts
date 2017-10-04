@@ -9,7 +9,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class SpotService {
-    private heroesUrl = 'api/heroes';  // URL to web api
+    private heroesUrl = 'api/posts';  // URL to web api
 
     private headers = new Headers({'Content-Type': 'application/json'});
 
